@@ -1,0 +1,149 @@
+<html>
+<head>
+    <script>
+        function foo()
+        {
+            var aValue = document.getElementById("aField").value;
+            var bValue = document.getElementById("bField").value;
+            var result = document.getElementById("result");
+            var sum = Number(aValue) + Number(bValue);
+            // alert(sum);
+            result.innerText = "Result:" + sum;
+            // alert(result.innerText);
+        }
+
+        function Add(a,b)
+        {
+            var aValue = document.getElementById("aField").value;
+            var bValue = document.getElementById("bField").value;
+            var result = Number(aValue) + Number(bValue);
+            PrintResult(result);
+        }
+
+        function Multi(a,b)
+        {
+            var aValue = document.getElementById("aField").value;
+            var bValue = document.getElementById("bField").value;
+            var result = Number(aValue) * Number(bValue);
+            PrintResult(result);
+        }
+
+        function Divide(a,b)
+        {
+            var aValue = document.getElementById("aField").value;
+            var bValue = document.getElementById("bField").value;
+            var result = Number(aValue) / Number(bValue);
+            PrintResult(result);
+        }
+
+        function Substract(a,b)
+        {
+            var aValue = document.getElementById("aField").value;
+            var bValue = document.getElementById("bField").value;
+            var result = Number(aValue) - Number(bValue);
+            PrintResult(result);
+        }
+
+        function PrintResult(result)
+        {
+           
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerText = "Result:" + result;
+             if((result)>0)
+             {
+                resultDiv.style.color='green';
+             }
+             else
+             {
+                resultDiv.style.color='red';
+             }
+
+
+            
+        }
+
+        function myFunction() {
+  var x = document.getElementById("cars");
+  document.getElementById("demo").innerHTML = x;
+    document.getElementById("demo").innerHTML = x;
+
+}
+        function addOne()
+        {
+            try{
+                var strResult=document.getElementById("result").innerText;
+                var resultVal = Number(strResult.replace("Result:",""));
+                console.log(resultVal);
+                resultVal++;
+               strResult=document.getElementById("result").innerText= "Result:"+resultVal;
+               var currentTimeDiv = document.getElementById("currentTime");
+               var d = new Date();
+               currentTimeDiv.innerHTML=d.getTime();
+                setTimeout(addOne,5000);
+            }
+            catch(err)
+            {
+                console.log(err);
+            }
+        }
+    </script>
+</head>
+    <body onload="addOne()">
+            <label>A</label>
+            <input type=text id="aField" value=760><br><br>
+            <label>B</label>
+            <input type=text id="bField" value=30><br>
+            <br>
+            <input type=button onclick="Add()" value="+" size=4> 
+            <input type=button onclick="Multi()" value="*" size=4>
+            <input type=button onclick="Divide()" value="/" size=4>
+            <input type=button onclick="Substract()" value="-" size=4>
+            <br>
+            <div id="result">
+                Result:
+            </div>
+            <div id="currentTime">
+            </div>
+
+
+            <label for="cars">Choose a car:</label>
+
+            <form action="#" method="post" id="demoForm" class="demoForm">
+
+                <fieldset>
+                    <legend>Demo: Get Value or Text of Selected Option</legend>
+                    
+                    <p>
+                        <select id="scripts" name="scripts">
+                            <option value="scroll">Scrolling Divs JavaScript</option>
+                            <option value="tooltip">JavaScript Tooltips</option>
+                            <option value="con_scroll">Continuous Scroller</option>
+                            <option value="banner">Rotating Banner JavaScript</option>
+                            <option value="random_img">Random Image PHP</option>
+                            <option value="form_builder">PHP Form Generator</option>
+                            <option value="table_class">PHP Table Class</option>
+                            <option value="order_forms">PHP Order Forms</option>
+                        </select>
+                        
+                        <input type="text" size="30" name="display" id="display" />
+                    </p>
+            
+                    <p>
+                        <input type="button" id="showVal" value="Value Property" />
+                        <input type="button" id="showTxt" value="selectedIndex/Text" />
+                        <input type="button" id="doLoop" value="Value from Loop" />
+                    </p>
+            
+                </fieldset>
+            </form>
+
+            
+
+<p>Click the button to return whether the banana option is selected.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+            
+    </body>
+</html>
