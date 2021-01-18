@@ -1,0 +1,26 @@
+.titles{
+
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: xx-large;
+color: darkred;
+text-decoration: underline;
+
+
+}
+
+#h2id{
+
+    text-shadow: 10px;
+    text-decoration-color: rgb(202, 13, 13);
+
+}
+#tex{
+    text-align: center;
+    color: darkviolet;
+    text-decoration: solid;
+    text-decoration-color: deepskyblue;
+}
+
+.per{
+    color: blue;
+}

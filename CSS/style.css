@@ -1,0 +1,30 @@
+body{
+    background-color: rgba(46, 22, 150, 0.308);
+    align-items: center;
+    text-align: center;
+    border-image: fill;
+    background-repeat: repeat;
+}
+h1{
+    font-family: sans-serif;
+    font-size: 150px;
+    color: rgb(105, 219, 39);
+}
+
+.H1title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 60px;
+    color: rgb(35, 105, 235);
+}
+#h1id{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+    color: rgba(116, 2, 49, 0.664);
+}
+.formClass{
+
+    background-color: coral;
+    border: 5px;
+    border-color: black;
+    float: left;
+}

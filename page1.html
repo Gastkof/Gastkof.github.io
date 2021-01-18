@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+            <title>class 21 dec 2020</title>
+    <link rel="stylesheet"  href="CSS\style.css">
+    <link rel="stylesheet"  href="Class1_files/css/s.css">
+
+
+    <script>
+
+      // function foo(){
+
+      //    var x= $('#div1'); 
+      //    alert(x.text());
+
+      // }
+
+function foo (a ,b)
+{
+$('#div1').text(a);
+
+}
+</script>
+<style>
+    #lname{
+        color: darkolivegreen;
+        font-size: medium;
+    }
+    #one{
+        font-size: 150px;
+    }
+</style>
+</head>
+<body>
+
+
+  <div id="div1">
+      hi 
+</div>
+<button onclick="foo()"> hello threr</button>
+    <h1 class="h1class1"> Class   <span id="one">1</span>  </h1>
+    <h2 class="h2class2" dir="rtl"> תרגול מספר 3 חזרה על החומר <br>והוספת טפסים לדפים</h2>
+    <p class="p1class1" dir="rtl">  היום אנו עושים חזרה על החומר עד וכולל CSS</p>
+    <hr>
+   
+
+<div class="container">
+  <form action="page2.html" method="GET">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." maxlength="7">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname" >Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Country</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+      </div>
+      <div class="col-75">
+       
+          
+          <input type="file" value="open file" >
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Subject</label>
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" aria-required="true"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit"  >
+      <input type="reset" onclick="foo(a='hello')" value="reset form">
+    </div>
+  </form>
+</div>
+
+
+
+</body>
+</html>
