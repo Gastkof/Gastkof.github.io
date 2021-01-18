@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script>
+            function foo()
+            {
+
+               
+                $.getJSON("https://www.reddit.com/r/aww.json",function(json){
+                    console.log(json);
+                    
+                    for(i=0;i<json.data.children.length;i++)
+                    {
+                        if(json.data.children[i].data.thumbnail.startsWith("http"))
+                        {
+                            item = json.data.children[i].data;
+                            textStr+= "<li>"+item.title+"<br><a href='" +json.data.children[i].data.url +"'\
+                                    target=_blank><img src='"+ json.data.children[i].data.thumbnail + "' /></a></li>";
+                            }
+                        
+                            // console.log(i);
+                        }
+                    $('#imgList').append(textStr);
+                }
+                );
+            }
+
+            function bar()
+            {
+                  $('#errSection').css("display", "none");
+                 var urlSrc = $('#urlStr').val();
+                 console.log(urlSrc);
+                 var textStr='';
+                 var jqxhr = $.getJSON( urlSrc, function(json) {
+                    console.log( "success" );
+                    $('#loadGif').css("display", "inline");
+                    })
+                    .done(function(json) {
+                        console.log(json.data);
+                        for(i=0;i<json.data.children.length;i++) {
+                            if(json.data.children[i].data.thumbnail.startsWith("http")) {
+                            item=json.data.children[i].data; 
+                            textStr+="<li>" +item.title+"<br><a href='" +json.data.children[i].data.url
+                             +"' \ target=_blank><img src='"+ json.data.children[i].data.thumbnail + "' /></a></li>";
+                            }
+
+                            // console.log(i);
+                            }
+                            $('#imgList').append(textStr);
+                        console.log( "second success" );
+                    })
+                    .fail(function() {
+                      console.log( "error" );
+                      $('#errSection').css("display", "inline");
+                    
+                    })
+                    .always(function() {
+                    console.log( "complete" );
+                    $('#loadGif').css("display", "none");
+                    });
+            }
+        </script>
+    </head>
+    <body>
+        <input id='urlStr' type=text size=100 value="https://www.reddit.com/r/aww.json"><br>
+        <button name="btn1" onclick="foo()">
+            click me
+        </button>
+        <button name="btn1" onclick="bar()">
+            click me 2
+        </button><br>
+        <img id="loadGif" src="https://i.gifer.com/ZC9Y.gif" width=100 height=100 style="display: inline;"><br>
+        <div id="errSection" style="display:none;">
+            <img src="https://media.giphy.com/media/idjlI0ixTP6KP7yVAK/giphy.gif">
+            <h1>Something went wrong</h1>
+        </div>
+        <div id='results'>
+
+        </div>
+        <ul id='imgList'>
+
+        </ul>
+    </body>
+</html>

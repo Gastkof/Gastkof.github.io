@@ -1,0 +1,93 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        function PrintTime(offsetHours=0)
+        {
+            var tz = document.getElementById("TZ").value;
+            var is24hrs=document.getElementById("24option").checked;
+            console.log(is24hrs);
+            
+            console.log(tz);
+            var d = new Date();
+            var seconds= d.getSeconds();
+            var minutes=d.getMinutes();
+            var hours=d.getHours();
+            var totalSeconds = seconds+minutes*60+hours*60*60;
+            console.log(d.getSeconds());
+            console.log(d.getMinutes());
+            console.log(d.getHours());
+            console.log(totalSeconds);
+            //Do some time math
+
+            var newHours = Math.floor(totalSeconds/(60*60))%24;
+            var newMinutes = Math.floor(totalSeconds/60)%60;
+            var newSeconds = (totalSeconds%60);
+            
+            if(is24hrs)
+                document.getElementById("hours").innerText = newHours;
+            else
+                document.getElementById("hours").innerText = newHours%12;
+            document.getElementById("minutes").innerText = newMinutes;
+            document.getElementById("seconds").innerText = newSeconds;
+
+            diffHours=Number(tz);
+            totalSeconds = seconds+minutes*60+hours*60*60 + tz*60*60;
+            newHours = Math.floor(totalSeconds/(60*60))%24;
+            newMinutes = Math.floor(totalSeconds/60)%60;
+            newSeconds = (totalSeconds%60);
+
+            if(is24hrs)
+                document.getElementById("hours2").innerText = newHours;
+            else
+                document.getElementById("hours2").innerText = newHours%12;
+                
+            document.getElementById("minutes2").innerText = newMinutes;
+            document.getElementById("seconds2").innerText = newSeconds;
+        }
+
+        function checkTime()
+        {
+        
+            PrintTime()
+            try{
+                setTimeout(checkTime,500);
+            }
+            catch(err)
+            {
+                console.log(err);
+            }
+           
+        }
+        
+    </script>
+    
+</head>
+    <body onload="checkTime()">
+        <br><br>
+        <select id="TZ">
+          <option value="-7" selected>New York</option>
+          <option value="-10">Seattle</option>
+          <option value="-2">London</option>
+          <option value="3.5">New Delhi</option>
+          <option value="6">Hong Kong</option>
+        </select>
+        <br><br>
+        <label>Local time:</label>
+        <span id="hours"></span>:
+        <span id="minutes"></span>:
+        <span id="seconds"></span>
+        <br>
+        <label>Remote time:</label>
+        <span id="hours2"></span>:
+        <span id="minutes2"></span>:
+        <span id="seconds2"></span>
+        <br><br>
+        
+        <input type="checkbox" id="24option" name="24option">
+        <label for="vehicle1">use 24hr format?</label><br>
+
+        
+    </body>
+</html>
